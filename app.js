@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     activitateParagraf.textContent = activitate.activitate;
     
     dataOraParagraf.style.color = "green";
-    activitateParagraf.style.color = "purple";
+    activitateParagraf.style.color = "black";
 
     let butonStergere = document.createElement("button");
     butonStergere.textContent = "Șterge";
