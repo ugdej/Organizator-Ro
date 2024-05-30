@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
   let activitateInput = document.getElementById("activitate");
   let dataInput = document.getElementById("data");
@@ -8,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let cuPrioritateList = document.getElementById("cuPrioritate");
   let oricindList = document.getElementById("oricind");
   let adaugaButton = document.getElementById("adauga");
-  
 
   let activitati = JSON.parse(localStorage.getItem("activitati")) || [];
   activitati.forEach(adaugaElementInLista);
@@ -23,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
       activitate: activitateValue,
       data: dataValue,
       ora: oraValue,
-      categorie: alegeValue
+      categorie: alegeValue,
     };
 
     let activitati = JSON.parse(localStorage.getItem("activitati")) || [];
@@ -38,15 +36,15 @@ document.addEventListener("DOMContentLoaded", function () {
     //alegeInput.value = "";
   });
 
-
   function adaugaElementInLista(activitate) {
     let newItem = document.createElement("span");
 
     let dataOraParagraf = document.createElement("p");
-    dataOraParagraf.textContent = "\n" + activitate.data + "\n/\n" + activitate.ora ;
+    dataOraParagraf.textContent =
+      "\n" + activitate.data + "\n/\n" + activitate.ora;
     let activitateParagraf = document.createElement("p");
     activitateParagraf.textContent = activitate.activitate;
-    
+
     dataOraParagraf.style.color = "green";
     activitateParagraf.style.color = "black";
 
@@ -56,16 +54,19 @@ document.addEventListener("DOMContentLoaded", function () {
     butonStergere.addEventListener("click", function () {
       newItem.remove();
       let activitati = JSON.parse(localStorage.getItem("activitati")) || [];
-      activitati = activitati.filter(a => a.activitate !== activitate.activitate || a.data !== activitate.data || a.ora !== activitate.ora);
+      activitati = activitati.filter(
+        (a) =>
+          a.activitate !== activitate.activitate ||
+          a.data !== activitate.data ||
+          a.ora !== activitate.ora
+      );
       localStorage.setItem("activitati", JSON.stringify(activitati));
     });
-    
+
     newItem.appendChild(dataOraParagraf);
     newItem.appendChild(activitateParagraf);
     newItem.appendChild(butonStergere);
 
-
-    
     if (activitate.categorie === "Urgent") {
       sortareSiAdaugareElement(urgentList, newItem);
       stergeClasa(urgentList, "ascunde");
@@ -89,10 +90,15 @@ document.addEventListener("DOMContentLoaded", function () {
     let elementeArray = Array.from(elementeLista);
 
     elementeArray.sort(function (a, b) {
-      let [dataA, oraA] = a.getElementsByTagName("li")[0].textContent.split("\n");
-      let [dataB, oraB] = b.getElementsByTagName("li")[0].textContent.split("\n");
+      let [dataA, oraA] = a
+        .getElementsByTagName("li")[0]
+        .textContent.split("\n");
+      let [dataB, oraB] = b
+        .getElementsByTagName("li")[0]
+        .textContent.split("\n");
 
-      let dataComparatie = new Date(dataA + " " + oraA) - new Date(dataB + " " + oraB);
+      let dataComparatie =
+        new Date(dataA + " " + oraA) - new Date(dataB + " " + oraB);
       return dataComparatie;
     });
 
@@ -116,8 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function stergeClasa(element, clasa) {
-    if (element && clasa) { 
-      element.classList.remove(clasa); 
+    if (element && clasa) {
+      element.classList.remove(clasa);
     } else {
       console.error("Elementul sau clasa nu sunt definite.");
     }
@@ -131,26 +137,30 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.getElementById("arataUrgent").addEventListener("click", function () {
-    if (urgentList.classList.contains('ascunde')) {
+    if (urgentList.classList.contains("ascunde")) {
       stergeClasa(urgentList, "ascunde");
     } else {
-      urgentList.classList.add('ascunde');
+      urgentList.classList.add("ascunde");
     }
   });
 
-  document.getElementById("arataCuPrioritate").addEventListener("click", function () {
-    if (cuPrioritateList.classList.contains('ascunde')) {
-      stergeClasa(cuPrioritateList, 'ascunde');
-    } else {
-      cuPrioritateList.classList.add('ascunde');
-    }
-  });
+  document
+    .getElementById("arataCuPrioritate")
+    .addEventListener("click", function () {
+      if (cuPrioritateList.classList.contains("ascunde")) {
+        stergeClasa(cuPrioritateList, "ascunde");
+      } else {
+        cuPrioritateList.classList.add("ascunde");
+      }
+    });
 
-  document.getElementById("arataOricind").addEventListener('click', function () {
-    if (oricindList.classList.contains('ascunde')) {
-      stergeClasa(oricindList, 'ascunde');
-    } else {
-      oricindList.classList.add('ascunde');
-    }
-  });
+  document
+    .getElementById("arataOricind")
+    .addEventListener("click", function () {
+      if (oricindList.classList.contains("ascunde")) {
+        stergeClasa(oricindList, "ascunde");
+      } else {
+        oricindList.classList.add("ascunde");
+      }
+    });
 });
