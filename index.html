@@ -10,11 +10,10 @@
 </head>
 
 <body>
-<div class="zero">
-  <div class="container1">
-    <div class="lista1">
-    
-      <script type="text/JavaScript">
+  <div class="zero">
+    <div class="container1">
+      <div class="lista1">
+        <script type="text/JavaScript">
       let mydate=new Date()
       let year=mydate.getYear()
       if (year <1000)
@@ -28,76 +27,78 @@
       let montharray=new Array("/ 01 /","/ 02 /"," / 03 /"," / 04 /","/ 05 /","/ 06 /","/ 07 /","/ 08 /","/ 09 /","/ 10 /","/ 11 /","/ 12 /")
       document.write("<large> * "+dayarray[day]+" "+daym+" "+montharray[month]+" "+year+"</large>")
       </script>
-    </div>
+      </div>
 
-    <div class="container3">
-     
-      <textarea id=activitate placeholder="Introduce-ti activitatea "></textarea> 
+      <div class="container3">
 
-<input  id="data" type="date" name="dtl" value="01-01-2000" />
+        <textarea id=activitate placeholder="Introduce-ti activitatea "></textarea>
 
-
-<input id="ora" type="time" name="currenttime" value="00:00:00" />
+        <input id="data" type="date" name="dtl" value="01-01-2000" />
 
 
-<script>
-  
-  function adaugaZero(numar) {
-    return numar < 10 ? "0" + numar : numar;
-  }
-
- 
-  let dataCurenta = new Date().toISOString().split('T')[0];
-  
-  document.getElementById("data").value = dataCurenta;
+        <input id="ora" type="time" name="currenttime" value="00:00:00" />
 
 
-  let oraCurenta = new Date();
-  let oraImpreunaCuMinute = adaugaZero(oraCurenta.getHours()) + ":" + adaugaZero(oraCurenta.getMinutes());
- 
-  document.getElementById("ora").value = oraImpreunaCuMinute;
-</script>
+        <script>
+
+          function adaugaZero(numar) {
+            return numar < 10 ? "0" + numar : numar;
+          }
 
 
+          let dataCurenta = new Date().toISOString().split('T')[0];
+
+          document.getElementById("data").value = dataCurenta;
+
+
+          let oraCurenta = new Date();
+          let oraImpreunaCuMinute = adaugaZero(oraCurenta.getHours()) + ":" + adaugaZero(oraCurenta.getMinutes());
+
+          document.getElementById("ora").value = oraImpreunaCuMinute;
+        </script>
+
+        <br>
+        <div class=" alegeButton">
+
+
+          <select name="alege" id="alege">
+            <option>Urgent</option>
+            <option>Cu Prioritate</option>
+            <option>Oricind</option>
+          </select>
+          <button id="adauga" class="button">Adauga</button>
+          <br>
+
+        </div>
+      </div>
       <br>
-      <div><select name="alege" id="alege"></div>
-      <option>Urgent</option>
-      <option>Cu Prioritate</option>  
-      <option>Oricind</option>
-      </select>
-      <button id="adauga" class="button">Adauga</button>
-    <br>
-    </div> 
-  </div>
-  <br>
-    <div class="but">
-      
-      <button id="arataUrgent" class="button2">Urgent</button>
-      <button id="arataCuPrioritate"class="button2">Prioritar</button>
-      <button id="arataOricind" class="button2">Oricind</button>
-      
-      
-    </div>
- 
-  <div class="container">
-    <div class="lista2 ascunde" id="urgent" name="urgent">
-      
-        <h2>Urgent</h2> 
-     
-    </div>
-    <div class="lista2 ascunde" id="cuPrioritate" name=cuPrioritate>
-      
-        <h2>Cu Prioritate</h2>
-    </div>
-    <div class="lista2 ascunde" id="oricind" name="oricind">
-    
-        <h2>Oricind</h2>
+      <div class="but">
+
+        <button id="arataUrgent" class="button2">Urgent</button>
+        <button id="arataCuPrioritate" class="button2">Prioritar</button>
+        <button id="arataOricind" class="button2">Oricind</button>
+
+      </div>
+
+      <div class="container">
+        <div class="lista2 ascunde" id="urgent" name="urgent">
+          <h2>Urgent</h2>
+
+
+        </div>
+        <div class="lista2 ascunde" id="cuPrioritate" name=cuPrioritate>
+
+          <h2>Cu Prioritate</h2>
+        </div>
+        <div class="lista2 ascunde" id="oricind" name="oricind">
+
+          <h2>Oricind</h2>
+        </div>
       </div>
     </div>
-  </body>
+</body>
 
 </body>
 <script src="app.js"></script>
-</html>
 
-    
+</html>
