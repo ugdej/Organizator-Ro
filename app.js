@@ -119,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
     adaugaClasa(oraInput, "ascunde");
     adaugaClasa(alegeInput, "ascunde");
     adaugaClasa(adaugaButton, "ascunde");
+     activitateInput.value = "";
   });
 
   function stergeClasa(element, clasa) {
